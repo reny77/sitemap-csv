@@ -5,11 +5,11 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 import urllib3
 
-# Disattiva avvisi di certificato SSL
+# To disable SSL certificate notifications
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def download_sitemap(url):
-    response = requests.get(url, verify=False)  # Disattiva la verifica del certificato SSL
+    response = requests.get(url, verify=False)  # Disable SSL certificate verification.
     if response.status_code == 200:
         return response.content
     else:
@@ -18,18 +18,18 @@ def download_sitemap(url):
 
 def parse_sitemap(content):
     urls = []
-    soup = BeautifulSoup(content, "lxml")  # Usa lxml come parser XML
+    soup = BeautifulSoup(content, "lxml")  # Use lxml as the XML parser.
     for loc in soup.find_all("loc"):
         urls.append(loc.text.strip())
     return urls
 
 def is_sitemap_index(content):
-    soup = BeautifulSoup(content, "lxml")  # Usa lxml come parser XML
+    soup = BeautifulSoup(content, "lxml")  # Use lxml as the XML parser.
     return soup.find("sitemapindex") is not None
 
 def parse_sitemap_index(content):
     sitemap_urls = []
-    soup = BeautifulSoup(content, "lxml")  # Usa lxml come parser XML
+    soup = BeautifulSoup(content, "lxml")  # Use lxml as the XML parser.
     for loc in soup.find_all("loc"):
         sitemap_urls.append(loc.text.strip())
     return sitemap_urls
