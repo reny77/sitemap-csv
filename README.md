@@ -5,4 +5,4 @@ This script allows you to download all the URLs from a sitemap in CSV format. It
 ## Usage
 
 ```bash
-python3 sitemap-dumper.py https://www.umbriatourism.it/sitemap.xml
+python3 sitemap-dumper.py https://${URL}/sitemap.xml
