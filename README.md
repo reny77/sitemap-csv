@@ -10,8 +10,10 @@ cd sitemap-csv
 python3 -m venv venv
 source venv/bin/activate
 python3 sitemap-dumper.py https://${URL}/sitemap.xml
+```
 
 ## Usage
 
 ```bash
 python3 sitemap-dumper.py https://${URL}/sitemap.xml
+```
