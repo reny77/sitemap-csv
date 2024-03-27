@@ -11,6 +11,7 @@ git clone git@github.com:reny77/sitemap-csv.git
 cd sitemap-csv
 python3 -m venv venv
 source venv/bin/activate
+pip -r requirement.txt
 python3 sitemap-dumper.py https://${URL}/sitemap.xml
 ```
 
